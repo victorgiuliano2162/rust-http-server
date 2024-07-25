@@ -140,8 +140,7 @@ mod test {
 
     #[test]
     fn test_read_http() {
-        let s: String = String::from("GET /greeting HTTP/1.1\r\nHost:localhost:3000\r\nUser-Agent: curl/7.64.1\r\nAccept:*/*\r\n\r\n");
-        let s: String = String::from("GET /greeting HTTP/1.1\r\nHost:localhost:3000\r\nUser-Agent: curl/7.64.1\r\nAccept:*/*\r\n\r\n");
+        let s: String = String::from("GET /greeting HTTP/1.1\r\nHost: localhost:3000\r\nUser-Agent: curl/7.64.1\r\nAccept: */*\r\n\r\n");
         let mut headers_expected: HashMap<String, String> = HashMap::new();
         headers_expected.insert("Host".into(), " localhost".into());
         headers_expected.insert("Accept".into(), " */*".into());
