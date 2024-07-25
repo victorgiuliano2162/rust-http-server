@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, os::windows::process};
 
 #[derive(Debug, PartialEq)]
 pub enum Method {
@@ -48,7 +48,27 @@ pub struct HttpRequest {
     pub msg_body: String,
 }
 
+impl From<String> for HttpRequest {
+    fn from(req: String) -> Self {
+        let mut parsed_method = Method::Uninitialized;
+        let mut parsed_version = Version::V1_1;
+        let mut parsed_resource = Resource::Path("".to_string());
+        let mut parsed_headers = HashMap::new();
+        let mut parsed_msg_body = "".to_string();
+    }
 
+    for line in req.lines() {
+        if line.contains("HTTP") {
+            let (method, resource, version) = process_req_line(line);
+            parsed_method = method;
+            parsed_version = version;
+            parsed_resouce = resouce;
+            process_header_line();
+        } else if line.contains(":") {
+            let (key, value) = process_header_lineeeeeeeeeeeeeeeeeeeeeeeeeeeeeel 
+        }
+    }
+}
 
 #[cfg(test)]
 mod test {
