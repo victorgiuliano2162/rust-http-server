@@ -18,6 +18,8 @@ impl<'a> Server<'a> {
         //Listen to incoming connections in a loop
         for stream in connection_listener.incoming() {
             let mut stream = stream.unwrap();
+            let mut read_buffer = [0; 99];
+            stream.read(&mut read_buffer).unwrap();
             println!("Connection established");
             //Convert HTTP request to Rust data structure
             let req: HttpRequest = String::from_utf8(read_buffer.to_vec()).unwrap().into();
