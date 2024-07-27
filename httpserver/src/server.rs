@@ -22,7 +22,7 @@ impl<'a> Server<'a> {
             //Convert HTTP request to Rust data structure
             let req: HttpRequest = String::from_utf8(read_buffer.to_vec()).unwrap().into();
             //Route request to appropriate handler
-            Router::route(req, &mut stream);
+            Router::router(req, &mut stream);
         }
     }
 } 
