@@ -71,7 +71,7 @@ impl Handler for WebServiceHandler {
         let http::httprequest::Resource::Path(s) = &req.resource;
 
         //parse the uri
-        let route Vec<&str> = s.split("/").collect();
+        let route: Vec<&str> = s.split("/").collect();
         //if route /api/shipping/orders return json
         match route[2] {
             "shipping" if route.len() > 2 && route[3] == "orders" => {
